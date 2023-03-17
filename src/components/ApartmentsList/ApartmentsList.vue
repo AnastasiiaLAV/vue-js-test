@@ -1,27 +1,20 @@
 <template lang="">
     <ContainerVue>
+        <h1 class="apartments-title">Details about the selection</h1>
         <div class="apartments-list">
-        <h1>Details about the selection</h1>
-        <ApartmentItem
-            v-for="{id, descr, rating, price, imgUrl} in items" 
-            :key="id"
-            :description="descr"
-            :rating="rating"
-            :price="price"
-            :imgUrl="imgUrl"
-        />
-    </div>
+            <template v-for="apartment in items">
+                <slot name="apartment" :apartment="apartment"></slot>
+            </template>
+        </div>
     </ContainerVue>
-    
 </template>
+
 <script>
-import ApartmentItem from '../Apartment/ApartmentItem.vue';
 import ContainerVue from '../IndividualComponents/Container.vue';
 
 export default {
     name: 'ApartmentsList',
     components:{
-        ApartmentItem,
         ContainerVue
     },
     props:{
@@ -33,6 +26,16 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+    .apartments-title{
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+    
     .apartments-list {
     /* display: flex;
     flex-wrap: wrap;

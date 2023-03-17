@@ -47,9 +47,6 @@ export default {
 <style lang="scss" scoped>
     .apartment-item {
         position: relative;
-        /* width: 33%; */
-        padding: 0 15px;
-        /* margin: 30px; */
         &__inner {
             position: relative;
             background-color: blue;
