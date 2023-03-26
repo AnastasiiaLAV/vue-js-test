@@ -1,6 +1,7 @@
 <template>
   <div>
   <h2>{{text}}</h2>
+  <SelectorVue :items="['name', 'salary', 'label']"/>
   <InputVue v-model="text"/>
 
     <ApartmentsList :items="apartments">
@@ -23,13 +24,14 @@ import ApartmentsList from './components/ApartmentsList/ApartmentsList.vue' ;
 import apartments from './components/ApartmentsList/apartments';
 import ApartmentItem from './components/Apartment/ApartmentItem.vue';
 import InputVue from './components/IndividualComponents/InputVue.vue';
-
+import SelectorVue from './components/IndividualComponents/Selector.vue';
 export default {
   name: 'App',
   components: {
       ApartmentsList,
       ApartmentItem,
       InputVue,
+      SelectorVue,
       },
     data(){
       return{
