@@ -1,5 +1,6 @@
 <template lang="">
     <ContainerVue>
+        <!-- <ApartmentFilterForm @submit='searchApartments'/> -->
         <h1 class="apartments-title">Details about the selection</h1>
         <div class="apartments-list">
             <template v-for="apartment in items">
@@ -11,18 +12,25 @@
 
 <script>
 import ContainerVue from '../IndividualComponents/Container.vue';
+// import ApartmentFilterForm from './ApartmentFilterForm.vue';
 
 export default {
     name: 'ApartmentsList',
     components:{
-        ContainerVue
+        ContainerVue,
+        // ApartmentFilterForm,
     },
     props:{
         items:{
             type: Array,
             default: () => [],
         }
-    }
+    },
+    methods: {
+        searchApartments(value){
+            return('value', value)
+        }
+    },
 }
 </script>
 <style lang="scss" scoped>
@@ -34,6 +42,9 @@ export default {
         align-items: center;
 
         color: #000000;
+
+        margin-top: 40px;
+        margin-bottom: 20px;
     }
     
     .apartments-list {

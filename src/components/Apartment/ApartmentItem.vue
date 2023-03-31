@@ -17,7 +17,7 @@
     </div>
 </template>
 <script>
-import StarRating from '../StarRanting.vue';
+import StarRating from '../IndividualComponents/StarRanting.vue';
 
 export default {
     name: 'ApartmentItem',

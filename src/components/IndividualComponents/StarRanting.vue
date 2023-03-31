@@ -68,10 +68,10 @@ export default {
             margin-left: 0;
         }
         &--colored {
-            background: url('../../public/img/star-yellow.svg') center no-repeat;
+            background: url('../../../public/img/star-yellow.svg') center no-repeat;
         }
         &--outlined {
-            background: url('../../public/img/star-outlined.svg') center no-repeat;
+            background: url('../../../public/img/star-outlined.svg') center no-repeat;
         }
     }
 </style>

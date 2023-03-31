@@ -1,9 +1,10 @@
 <template>
   <div>
-  <h2>{{text}}</h2>
-  <SelectorVue :items="['name', 'salary', 'label']"/>
-  <InputVue v-model="text"/>
-
+    <ContainerVue>
+      <ApartmentFilterFormVue 
+        @submit="searchApartments"
+      />
+    </ContainerVue>
     <ApartmentsList :items="apartments">
       <template v-slot:apartment="{apartment}">
           <ApartmentItem
@@ -12,7 +13,6 @@
             :rating="apartment.rating"
             :price="apartment.price"
             :imgUrl="apartment.imgUrl"
-            @click="handleItemClick"
         />
       </template>
     </ApartmentsList>
@@ -20,31 +20,31 @@
 </template>
 
 <script>
-import ApartmentsList from './components/ApartmentsList/ApartmentsList.vue' ;
-import apartments from './components/ApartmentsList/apartments';
+import ApartmentsList from './components/Apartment/ApartmentsList.vue' ;
+import apartments from './components/Apartment/apartments';
 import ApartmentItem from './components/Apartment/ApartmentItem.vue';
-import InputVue from './components/IndividualComponents/InputVue.vue';
-import SelectorVue from './components/IndividualComponents/Selector.vue';
+import ApartmentFilterFormVue from './components/Apartment/ApartmentFilterForm.vue';
+import ContainerVue from './components/IndividualComponents/Container.vue'
+
+
 export default {
   name: 'App',
   components: {
       ApartmentsList,
       ApartmentItem,
-      InputVue,
-      SelectorVue,
+      ApartmentFilterFormVue,
+      ContainerVue,
       },
     data(){
       return{
-        text: "",
         apartments,
       }
-      
     },
     methods: {
-        handleItemClick (){
-          console.log('click')
+        searchApartments(value){
+            console.log('AppFormValue', value)
         }
-      },
+    },
   }
 </script>
 

@@ -1,11 +1,11 @@
 <template lang="">
     <div>
         <input 
-        type="text"  
-        v-model="text"
-        v-on="listeners"
-        v-bind="$attrs"
-        class="custom-input"/>
+            v-model="text"
+            type="text"  
+            v-on="listeners"
+            v-bind="$attrs"
+            class="custom-input"/>
     </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
     name: "InputVue",
     data(){
         return{
-            text: ""
+            text: "",
         }
     },
     computed:{
@@ -25,19 +25,14 @@ export default {
             }
         }
     },
-    // methods: {
-    //     InputEvent (){
-    //       console.log(event.target.value)
-    //     }
-    //   },
 }
 </script>
 <style lang="scss" scoped>
 @import '../../assets/scss/variables';
     .custom-input {
-        height: 40px;
-        /* width: 100%; */
-        width: 200px;
+        height: 44px;
+        max-width: 220px;
+        width: 100%;
         border: 2px solid $main-color;
         font-size: 18px;
         outline: none;
