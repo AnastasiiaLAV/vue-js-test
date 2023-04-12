@@ -40,7 +40,11 @@ export default {
         imgUrl:{
             type: String,
             default: '',
-        }
+        },
+        // location:{
+        //     type: String,
+        //     default: ''
+        // }
     }
 }
 </script>
