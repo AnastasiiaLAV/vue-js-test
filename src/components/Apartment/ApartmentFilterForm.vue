@@ -52,7 +52,7 @@ export default {
     },
     methods:{
         handleSubmit(){
-            this.$emit('submit', 
+            this.$emit('submitA', 
             {
                 city: this.city,
                 price: this.price,

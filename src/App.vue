@@ -2,8 +2,9 @@
   <div>
     <ContainerVue>
       <ApartmentFilterFormVue 
-        @submit="filter"
+        @submitA="filter"
       />
+
     </ContainerVue>
     <ApartmentsList :items="filtersApartments">
       <template v-slot:apartment="{apartment}">
@@ -51,28 +52,24 @@ export default {
       filtersApartments(){
               console.log('APART-ARRAY-FILTER--', this.filtersByCityName(this.filtersByPrice(this.apartments)))
         
-        return this.filtersByCityName(this.filtersByPrice(this.apartments))
+        return (this.filtersByCityName(this.filtersByPrice(this.apartments)))
       }
     },
 
     methods: {
       filter({city, price}){
-            console.log('filter-city-', this.filters.city)
-            console.log('filter-price-', this.filters.price)
         this.filters.city = city
         this.filters.price = price
       },
       filtersByCityName(){
-                console.log('submit---', this.filters)
-
                 console.log('this.filters.city===', this.filters.city)
 
-        // if(!this.filters.city) return this.apartments;
+        if(!this.filters.city) return this.apartments;
     
                 console.log('!!!!!submit-apart===', this.apartments)
 
         return this.apartments.filter(apartment=>{
-                console.log('filtersByCityName()--', apartment.location.city)
+                console.log('filtersByCityName()--', this.filters.city)
           return apartment.location.city === this.filters.city;
         });
       },
@@ -80,10 +77,10 @@ export default {
                 console.log('submit-price--', this.filters)
 
                 console.log('this.filters.price===', this.filters.city)
-        // if(!this.filters.price) return this.apartments;
+        if(!this.filters.price) return this.apartments;
 
         return this.apartments.filter(apartment=>{
-          console.log('filtersByPrice()---', apartment.price)
+          console.log('filtersByPrice()---', this.filters.price)
           return apartment.price >= this.filters.price;
         });
       }
